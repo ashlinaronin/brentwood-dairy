@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="brentwoodDairy">
+  <head>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="js/DairyController.js"></script>
+    <script src="js/CartController.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>Brentwood Dairy</title>
+  </head>
+  <body>
+    <div class="container" ng-controller="DairyCtrl">
+
+      <div class="panel panel-default" id="product-list">
+        <div class="panel-heading">
+          <h2>Available Dairy Products</h2>
+        </div>
+        <div class="panel-body">
+          <div class="list-group">
+
+            <div class="list-group-item" ng-repeat="item in products">
+              <h4 class="list-group-item-heading">{{item.name}}</h4>
+              <p class="list-group-item-text">"{{item.description}}" - Danny DeVito</p>
+              <p class="list-group-item-text"> {{item.size}}</p>
+              <p class="list-group-item-text">${{item.price}}</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
