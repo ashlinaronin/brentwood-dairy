@@ -26,4 +26,35 @@ brentwoodDairy.controller('DairyCtrl', function DairyCtrl($scope) {
     var index = $scope.products.indexOf(product);
     $scope.products.splice(index, 1);
   };
+
+
+  // Put cart stuff in this controller for now
+  $scope.cart = [];
+  $scope.totalPrice = 0;
+
+  $scope.addToCart = function(product) {
+    $scope.cart.push(
+      {
+        product: product,
+        quantity: 1
+      }
+    );
+    $scope.updateTotal();
+  };
+
+  $scope.removeFromCart = function(product) {
+    var index = $scope.cart.indexOf(product);
+    $scope.cart.splice(index, 1);
+  }
+
+  $scope.clearCart = function() {
+    $scope.cart = [];
+  }
+
+  $scope.updateTotal = function() {
+    $scope.totalPrice = 0;
+    $scope.cart.forEach(function(item) {
+      $scope.totalPrice += (item.quantity * item.product.price);
+    });
+  }
 });
